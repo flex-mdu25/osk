@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+    <title>Share Flex Message</title>
+  </head>
+  <body>
+    <center>
+      <p>... กำลังโหลด ...</p>
+      <img src="https://image.makewebeasy.net/makeweb/0/pMrtkmxgt/APNG_images/loader1_1.gif?v=202012190947" alt="loading" width="126" height="129" />
+      <p>กรุณารอสักครู่</p>
+    </center>
+
+    <script>
+      window.onload = function() {
+        liff.init({ liffId: "2006590629-7jR2wjnz" })
+          .then(() => {
+            if (liff.isLoggedIn()) {
+              dolink();
+            } else {
+              liff.login();
+            }
+          })
+          .catch(err => console.error('LIFF Initialization failed ', err));
+      };
+
+
+      function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        const results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+
+      async function fetchDataFromGoogleSheet(id) {
+        const url = `https://script.google.com/macros/s/AKfycbwthK5LUlcs3Ghx9tNDY3H6JrU2lGmBDaBuP_jRcZvUD-CKYhpV89_8LpxYjPuaU-nbiA/exec?id=${id}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      }
+
+      function dolink() {
+        const referId = getParameterByName("id");
+
+        fetchDataFromGoogleSheet(referId).then(data => {
+          if (data.error) {
+            Swal.fire('Error', 'ไม่พบข้อมูลที่ต้องการ', 'error');
+            return;
+          }
+
+          if (referId === getParameterByName("id")) {
+            liff.shareTargetPicker([
+              {
+                "type": "flex",
+                "altText": "OSK RTARF",
+                "contents": 
+// -------ใส่ JSON ----------
+
+{
+  "type": "bubble",
+  "size": "giga",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://flex-mdu25.github.io/Pr25/img/bn-osk2.png",
+        "size": "full",
+        "aspectRatio": "1040:200",
+        "align": "center",
+        "gravity": "center",
+        "aspectMode": "cover",
+        "offsetTop": "none",
+        "animated": true
+      }
+    ],
+    "paddingAll": "none"
+  },
+  "hero": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "image",
+                    "size": "full",
+                    "aspectRatio": "16:10",
+                    "url": "https://img5.pic.in.th/file/secure-sv1/S__10805381_0.jpg",
+                    "aspectMode": "cover",
+                    "action": {
+                      "type": "uri",
+                      "label": "action",
+                      "uri": "https://scontent.fbkk28-1.fna.fbcdn.net/v/t39.30808-6/463616654_960792826076732_1401286305686488731_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=JtEI76hCaUQQ7kNvgHBXKLZ&_nc_zt=23&_nc_ht=scontent.fbkk28-1.fna&_nc_gid=AwANByabQNscQf-Fjpwg3lZ&oh=00_AYBIZ5MXERzoI_FxQSuolVRGBJ5jz7b1D_rW2F39KLNgWA&oe=6732A10B"
+                    }
+                  }
+                ],
+                "width": "100%",
+                "cornerRadius": "xl"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "size": "sm",
+                    "weight": "bold",
+                    "align": "start",
+                    "wrap": true,
+                    "contents": [
+                      {
+                        "type": "span",
+                        "color": "#293377",
+                        "decoration": "underline",
+                        "size": "lg",
+                        "text": "ตรวจติดตามผลการปฏิบัติงานตามโครงการ"
+                      }
+                    ],
+                    "margin": "lg",
+                    "offsetStart": "sm",
+                    "offsetEnd": "sm",
+                    "offsetBottom": "md"
+                  },
+                  {
+                    "type": "text",
+                    "text": "สนภ.2 นทพ. จัดชุดตรวจติดตามผลการปฏิบัติงานตามโครงการเพิ่มประสิทธิภาพการบริหารจัดการน้ำ สนับสนุน สทนช. (งบกลาง) ของ นพค.21 สนภ.2 นทพ. เพื่อให้งานมีประสิทธิภาพ เกิดประโยชน์สูงสุดกับประชาชน",
+                    "wrap": true,
+                    "size": "sm"
+                  }
+                ],
+                "paddingAll": "md",
+                "width": "100%"
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                      {
+                        "type": "image",
+                        "size": "full",
+                        "aspectMode": "cover",
+                        "align": "center",
+                        "gravity": "center",
+                        "aspectRatio": "16:9",
+                        "action": {
+                          "type": "uri",
+                          "label": "action",
+                          "uri": "https://scontent.fbkk28-1.fna.fbcdn.net/v/t39.30808-6/463688859_960792706076744_2061955305577857473_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=V6jV5_y0SbQQ7kNvgGzSB9D&_nc_zt=23&_nc_ht=scontent.fbkk28-1.fna&_nc_gid=ARqRbwkam9x9Jr4_GQdGHAx&oh=00_AYBfgHE4sNYfMSy5a0emyYYQF480rMLm3ZcjNHDzhfVpCw&oe=67329F03"
+                        },
+                        "url": "https://img2.pic.in.th/pic/S__10805386_01a0ef7cf350dc735.jpg"
+                      }
+                    ],
+                    "borderWidth": "none",
+                    "width": "33%",
+                    "cornerRadius": "sm",
+                    "offsetEnd": "xs"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "image",
+                        "url": "https://img2.pic.in.th/pic/S__10805384_0.jpg",
+                        "size": "full",
+                        "aspectMode": "cover",
+                        "aspectRatio": "16:9",
+                        "action": {
+                          "type": "uri",
+                          "label": "action",
+                          "uri": "https://scontent.fbkk28-1.fna.fbcdn.net/v/t39.30808-6/462578768_960792766076738_569701515415181989_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=0DMszxF-o2kQ7kNvgFByVME&_nc_zt=23&_nc_ht=scontent.fbkk28-1.fna&_nc_gid=AuoOFKF0ioFZ5_C5tDRmY26&oh=00_AYDDAoymbhMy9dXyy1Su3cUGPoYIUXfe__lhbmqe50hLEA&oe=6732AF6A"
+                        }
+                      }
+                    ],
+                    "width": "33%",
+                    "offsetEnd": "none",
+                    "paddingEnd": "none",
+                    "cornerRadius": "sm",
+                    "offsetStart": "xs"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                      {
+                        "type": "image",
+                        "url": "https://img2.pic.in.th/pic/S__10805385_0.jpg",
+                        "aspectMode": "cover",
+                        "size": "full",
+                        "aspectRatio": "16:9",
+                        "action": {
+                          "type": "uri",
+                          "label": "action",
+                          "uri": "https://scontent.fbkk28-1.fna.fbcdn.net/v/t39.30808-6/463617274_960792729410075_1418791648468127777_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WxOjH4aBreEQ7kNvgGpD4CW&_nc_zt=23&_nc_ht=scontent.fbkk28-1.fna&_nc_gid=Agd76JRPG2QE3kW6LBGTfhW&oh=00_AYBlD_0H85OK3FbBsmiGgoj8XQ2SlYBwqI2qsyVqZnP8gg&oe=6732C597"
+                        }
+                      }
+                    ],
+                    "width": "33%",
+                    "cornerRadius": "sm",
+                    "offsetStart": "5px"
+                  },
+                  {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": []
+                  }
+                ],
+                "borderWidth": "none",
+                "alignItems": "flex-start",
+                "paddingAll": "xs"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "icon",
+                    "url": "https://flex-mdu25.github.io/Pr25/img/ic_facebook.png",
+                    "size": "4xl",
+                    "margin": "none",
+                    "offsetStart": "xxl",
+                    "offsetEnd": "none",
+                    "offsetBottom": "none",
+                    "offsetTop": "xs"
+                  }
+                ],
+                "borderWidth": "normal",
+                "width": "33%",
+                "action": {
+                  "type": "uri",
+                  "label": "FB",
+                  "uri": "https://www.facebook.com/profile.php?id=100064606275406&mibextid=ZbWKwL"
+                },
+                "justifyContent": "center"
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "icon",
+                    "url": "https://flex-mdu25.github.io/Pr25/img/ic_tiktok.png",
+                    "size": "4xl",
+                    "offsetTop": "xs",
+                    "offsetEnd": "none"
+                  }
+                ],
+                "width": "33%",
+                "action": {
+                  "type": "uri",
+                  "label": "Tiktok",
+                  "uri": "https://www.tiktok.com/@2nd_regional_development?_t=8rZEo2xzkPw&_r=1"
+                },
+                "justifyContent": "center"
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "icon",
+                    "url": "https://flex-mdu25.github.io/Pr25/img/ic_website.png",
+                    "size": "4xl",
+                    "offsetTop": "xs",
+                    "offsetEnd": "xxl"
+                  }
+                ],
+                "width": "33%",
+                "action": {
+                  "type": "uri",
+                  "label": "Website",
+                  "uri": "https://2rdo.rtarf.mi.th/2RDO/index1.html"
+                },
+                "justifyContent": "center"
+              }
+            ],
+            "paddingTop": "xs",
+            "paddingEnd": "xs",
+            "offsetTop": "xs"
+          }
+        ],
+        "backgroundColor": "#ffffff",
+        "borderWidth": "semi-bold",
+        "borderColor": "#005a91",
+        "cornerRadius": "xxl",
+        "offsetTop": "md",
+        "offsetBottom": "lg",
+        "paddingAll": "md"
+      }
+    ],
+    "paddingAll": "lg",
+    "paddingBottom": "lg",
+    "background": {
+      "type": "linearGradient",
+      "angle": "0deg",
+      "startColor": "#4ed5fe",
+      "endColor": "#ffc6f7"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://flex-mdu25.github.io/Pr25/img/read.png",
+            "size": "full",
+            "aspectRatio": "10:4",
+            "action": {
+              "type": "uri",
+              "label": "อ่านเพิ่มเติม",
+              "uri": "https://www.facebook.com/profile.php?id=100064606275406&mibextid=ZbWKwL"
+            }
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [],
+        "width": "5%"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://flex-mdu25.github.io/Pr25/img/share2.png",
+            "size": "full",
+            "aspectRatio": "10:4",
+            "action": {
+              "type": "uri",
+              "label": "คลิกเพื่อแชร์",
+              "uri": "http://sharelink.me"
+            }
+          }
+        ]
+      }
+    ],
+    "backgroundColor": "#4ed5fe",
+    "offsetTop": "xs",
+    "paddingTop": "1px",
+    "paddingEnd": "lg",
+    "paddingBottom": "5px"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://flex-mdu25.github.io/Pr25/img/foot-osk.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "5:1"
+      }
+    ],
+    "paddingAll": "none"
+  },
+  "styles": {
+    "hero": {
+      "backgroundColor": "#d6ebf5"
+    },
+    "body": {
+      "backgroundColor": "#4ed5fe"
+    },
+    "footer": {
+      "backgroundColor": "#ffffff"
+    }
+  }
+}
+
+                  
+
+
+
+// -------จบ JSON ----------
+
+              }
+            ])
+            .then(function() {
+              Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'ส่งข้อมูลเรียบร้อย',
+                showConfirmButton: false,
+                timer: 1500,
+                onClose: () => {
+                  liff.closeWindow();
+                }
+              });
+            })
+            .catch(function(error) {
+              console.error("Error in shareTargetPicker: ", error);
+            });
+          }
+        }).catch(error => {
+          console.error("Error fetching data: ", error);
+          Swal.fire('Error', 'เกิดข้อผิดพลาดในการดึงข้อมูล', 'error');
+        });
+      }
+
+
+    </script>
+
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  </body>
+</html>
