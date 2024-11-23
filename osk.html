@@ -16,7 +16,7 @@
 
     <script>
       window.onload = function() {
-        liff.init({ liffId: "2006590629-7jR2wjnz" })
+        liff.init({ liffId: "2006590629-MEoa9kEB" })
           .then(() => {
             if (liff.isLoggedIn()) {
               dolink();
@@ -38,7 +38,7 @@
       }
 
       async function fetchDataFromGoogleSheet(id) {
-        const url = `https://script.google.com/macros/s/AKfycbwthK5LUlcs3Ghx9tNDY3H6JrU2lGmBDaBuP_jRcZvUD-CKYhpV89_8LpxYjPuaU-nbiA/exec?id=${id}`;
+        const url = `https://script.google.com/macros/s/AKfycbwrCm77RDBl6mzdh8UPyFagPLN-ubfoIAMyjdSdK-QWJG89S1xHUhs2n5QcuEDFyhARSQ/exec?id=${id}`;
         const response = await fetch(url);
         const data = await response.json();
         return data;
@@ -102,12 +102,12 @@
                     "type": "image",
                     "size": "full",
                     "aspectRatio": "16:10",
-                    "url": "https://img5.pic.in.th/file/secure-sv1/S__10805381_0.jpg",
+                    "url": data.imagetitle,
                     "aspectMode": "cover",
                     "action": {
                       "type": "uri",
                       "label": "action",
-                      "uri": "https://scontent.fbkk28-1.fna.fbcdn.net/v/t39.30808-6/463616654_960792826076732_1401286305686488731_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=JtEI76hCaUQQ7kNvgHBXKLZ&_nc_zt=23&_nc_ht=scontent.fbkk28-1.fna&_nc_gid=AwANByabQNscQf-Fjpwg3lZ&oh=00_AYBIZ5MXERzoI_FxQSuolVRGBJ5jz7b1D_rW2F39KLNgWA&oe=6732A10B"
+                      "uri": data.imagetitle
                     }
                   }
                 ],
@@ -130,7 +130,7 @@
                         "color": "#293377",
                         "decoration": "underline",
                         "size": "lg",
-                        "text": "ตรวจติดตามผลการปฏิบัติงานตามโครงการ"
+                        "text": data.title
                       }
                     ],
                     "margin": "lg",
@@ -140,7 +140,7 @@
                   },
                   {
                     "type": "text",
-                    "text": "สนภ.2 นทพ. จัดชุดตรวจติดตามผลการปฏิบัติงานตามโครงการเพิ่มประสิทธิภาพการบริหารจัดการน้ำ สนับสนุน สทนช. (งบกลาง) ของ นพค.21 สนภ.2 นทพ. เพื่อให้งานมีประสิทธิภาพ เกิดประโยชน์สูงสุดกับประชาชน",
+                    "text": data.description,
                     "wrap": true,
                     "size": "sm"
                   }
@@ -166,9 +166,9 @@
                         "action": {
                           "type": "uri",
                           "label": "action",
-                          "uri": "https://scontent.fbkk28-1.fna.fbcdn.net/v/t39.30808-6/463688859_960792706076744_2061955305577857473_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=V6jV5_y0SbQQ7kNvgGzSB9D&_nc_zt=23&_nc_ht=scontent.fbkk28-1.fna&_nc_gid=ARqRbwkam9x9Jr4_GQdGHAx&oh=00_AYBfgHE4sNYfMSy5a0emyYYQF480rMLm3ZcjNHDzhfVpCw&oe=67329F03"
+                          "uri": data.image1
                         },
-                        "url": "https://img2.pic.in.th/pic/S__10805386_01a0ef7cf350dc735.jpg"
+                        "url": data.image1
                       }
                     ],
                     "borderWidth": "none",
@@ -182,14 +182,14 @@
                     "contents": [
                       {
                         "type": "image",
-                        "url": "https://img2.pic.in.th/pic/S__10805384_0.jpg",
+                        "url": data.image2,
                         "size": "full",
                         "aspectMode": "cover",
                         "aspectRatio": "16:9",
                         "action": {
                           "type": "uri",
                           "label": "action",
-                          "uri": "https://scontent.fbkk28-1.fna.fbcdn.net/v/t39.30808-6/462578768_960792766076738_569701515415181989_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=0DMszxF-o2kQ7kNvgFByVME&_nc_zt=23&_nc_ht=scontent.fbkk28-1.fna&_nc_gid=AuoOFKF0ioFZ5_C5tDRmY26&oh=00_AYDDAoymbhMy9dXyy1Su3cUGPoYIUXfe__lhbmqe50hLEA&oe=6732AF6A"
+                          "uri": data.image2
                         }
                       }
                     ],
@@ -205,14 +205,14 @@
                     "contents": [
                       {
                         "type": "image",
-                        "url": "https://img2.pic.in.th/pic/S__10805385_0.jpg",
+                        "url": data.image3,
                         "aspectMode": "cover",
                         "size": "full",
                         "aspectRatio": "16:9",
                         "action": {
                           "type": "uri",
                           "label": "action",
-                          "uri": "https://scontent.fbkk28-1.fna.fbcdn.net/v/t39.30808-6/463617274_960792729410075_1418791648468127777_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WxOjH4aBreEQ7kNvgGpD4CW&_nc_zt=23&_nc_ht=scontent.fbkk28-1.fna&_nc_gid=Agd76JRPG2QE3kW6LBGTfhW&oh=00_AYBlD_0H85OK3FbBsmiGgoj8XQ2SlYBwqI2qsyVqZnP8gg&oe=6732C597"
+                          "uri": data.image3
                         }
                       }
                     ],
@@ -231,79 +231,6 @@
                 "paddingAll": "xs"
               }
             ]
-          },
-          {
-            "type": "box",
-            "layout": "horizontal",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://flex-mdu25.github.io/Pr25/img/ic_facebook.png",
-                    "size": "4xl",
-                    "margin": "none",
-                    "offsetStart": "xxl",
-                    "offsetEnd": "none",
-                    "offsetBottom": "none",
-                    "offsetTop": "xs"
-                  }
-                ],
-                "borderWidth": "normal",
-                "width": "33%",
-                "action": {
-                  "type": "uri",
-                  "label": "FB",
-                  "uri": "https://www.facebook.com/profile.php?id=100064606275406&mibextid=ZbWKwL"
-                },
-                "justifyContent": "center"
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://flex-mdu25.github.io/Pr25/img/ic_tiktok.png",
-                    "size": "4xl",
-                    "offsetTop": "xs",
-                    "offsetEnd": "none"
-                  }
-                ],
-                "width": "33%",
-                "action": {
-                  "type": "uri",
-                  "label": "Tiktok",
-                  "uri": "https://www.tiktok.com/@2nd_regional_development?_t=8rZEo2xzkPw&_r=1"
-                },
-                "justifyContent": "center"
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://flex-mdu25.github.io/Pr25/img/ic_website.png",
-                    "size": "4xl",
-                    "offsetTop": "xs",
-                    "offsetEnd": "xxl"
-                  }
-                ],
-                "width": "33%",
-                "action": {
-                  "type": "uri",
-                  "label": "Website",
-                  "uri": "https://2rdo.rtarf.mi.th/2RDO/index1.html"
-                },
-                "justifyContent": "center"
-              }
-            ],
-            "paddingTop": "xs",
-            "paddingEnd": "xs",
-            "offsetTop": "xs"
           }
         ],
         "backgroundColor": "#ffffff",
@@ -340,7 +267,7 @@
             "action": {
               "type": "uri",
               "label": "อ่านเพิ่มเติม",
-              "uri": "https://www.facebook.com/profile.php?id=100064606275406&mibextid=ZbWKwL"
+              "uri": data.newsfblink
             }
           }
         ]
@@ -363,7 +290,7 @@
             "action": {
               "type": "uri",
               "label": "คลิกเพื่อแชร์",
-              "uri": "http://sharelink.me"
+              "uri": data.liffshare
             }
           }
         ]
